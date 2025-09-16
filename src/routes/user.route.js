@@ -47,13 +47,13 @@ router.route('/updateAccount').patch(
     updateAccountDetails
 )
 
-router.route('/avatar'),post(
+router.route('/avatar').post(
     verifyJWT,
     upload.single('avatar'),
     updateUserAvatar
 )
 
-router.route('/cover-image'),post(
+router.route('/cover-image').post(
     verifyJWT,
     upload.single('coverImage'),
     updateUserAvatar
