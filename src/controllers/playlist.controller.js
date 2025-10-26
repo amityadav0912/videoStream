@@ -183,11 +183,11 @@ const removeVideoFromPlaylist = asyncHandler(async (req, res)=>{
 const deletePlaylist = asyncHandler(async (req, res)=>{
     const {playListId} = req.params;
 
-    const playListById = await Playlist.findById(playListId).pupulate("videos")
+    const playListById = await Playlist.findById(playListId).populate("videos")
 
     if(!playListById){
         throw new ApiError(
-            500,
+            404,
             'No Playlist found'
         )
     }
@@ -224,7 +224,7 @@ const updatePlalist = asyncHandler(async (req, res)=>{
         )
     }
 
-    const playListById = await Playlist.findById(playListId).pupulate("videos")
+    const playListById = await Playlist.findById(playListId).populate("videos")
 
     if(!playListById){
         throw new ApiError(
